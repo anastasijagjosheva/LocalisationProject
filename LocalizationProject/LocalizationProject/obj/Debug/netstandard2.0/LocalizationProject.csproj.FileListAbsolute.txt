@@ -1,0 +1,14 @@
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/bin/Debug/netstandard2.0/LocalizationProject.deps.json
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/bin/Debug/netstandard2.0/LocalizationProject.dll
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/bin/Debug/netstandard2.0/LocalizationProject.pdb
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.csproj.AssemblyReference.cache
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.AssemblyInfoInputs.cache
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.AssemblyInfo.cs
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.csproj.CoreCompileInputs.cache
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.dll
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/LocalizationProject.pdb
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/obj/Debug/netstandard2.0/Views/CakesCatalog.xaml.g.cs

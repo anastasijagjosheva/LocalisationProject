@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "FXjwbeYA+Dl1H8fhMZvjzXhoW0eQyM4uH3/tn014OpuP2wPfGgGUe+m2yedghrZ7cANenzv+amR1R6UISbGEOA==",
+  "success": true,
+  "projectFilePath": "/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject/LocalizationProject.csproj",
+  "expectedPackageFiles": [
+    "/Users/anastasijagjosheva/.nuget/packages/dryioc.dll/4.7.7/dryioc.dll.4.7.7.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/prism.core/8.1.97/prism.core.8.1.97.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/prism.dryioc.forms/8.1.97/prism.dryioc.forms.8.1.97.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/prism.forms/8.1.97/prism.forms.8.1.97.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.componentmodel/4.3.0/system.componentmodel.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.reflection.emit.lightweight/4.3.0/system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/xamarin.essentials/1.8.1/xamarin.essentials.1.8.1.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/xamarin.forms/5.0.0.2012/xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "/Users/anastasijagjosheva/.nuget/packages/xamarin.forms.pancakeview/2.3.0.763-beta/xamarin.forms.pancakeview.2.3.0.763-beta.nupkg.sha512"
+  ],
+  "logs": []
+}

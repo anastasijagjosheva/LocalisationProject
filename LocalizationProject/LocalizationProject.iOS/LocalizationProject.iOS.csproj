@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+        <ProductVersion>8.0.30703</ProductVersion>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{6EBEE880-74C2-42F5-985C-001C29F0E55D}</ProjectGuid>
+        <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>LocalizationProject.iOS</RootNamespace>
+        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+        <AssemblyName>LocalizationProject.iOS</AssemblyName>
+        <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <MtouchArch>x86_64</MtouchArch>
+        <MtouchLink>None</MtouchLink>
+        <MtouchDebug>true</MtouchDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchLink>None</MtouchLink>
+        <MtouchArch>x86_64</MtouchArch>
+        <ConsolePause>false</ConsolePause>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhone\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>false</ConsolePause>
+        <MtouchArch>ARM64</MtouchArch>
+        <CodesignKey>iPhone Developer</CodesignKey>
+        <MtouchDebug>true</MtouchDebug>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhone\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchArch>ARM64</MtouchArch>
+        <ConsolePause>false</ConsolePause>
+        <CodesignKey>iPhone Developer</CodesignKey>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+        <DebugType>none</DebugType>
+        <Optimize>True</Optimize>
+        <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>False</ConsolePause>
+        <MtouchArch>ARM64</MtouchArch>
+        <BuildIpa>True</BuildIpa>
+        <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+        <CodesignKey>iPhone Distribution</CodesignKey>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+        <DebugType>none</DebugType>
+        <Optimize>True</Optimize>
+        <OutputPath>bin\iPhone\AppStore</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <ConsolePause>False</ConsolePause>
+        <MtouchArch>ARM64</MtouchArch>
+        <CodesignProvision>Automatic:AppStore</CodesignProvision>
+        <CodesignKey>iPhone Distribution</CodesignKey>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Main.cs"/>
+        <Compile Include="AppDelegate.cs"/>
+        <None Include="Entitlements.plist"/>
+        <None Include="Info.plist"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <BundleResource Include="Resources\pinkCake.jpeg" />
+        <BundleResource Include="Resources\overlay.png" />
+        <BundleResource Include="Resources\add.png" />
+        <BundleResource Include="Resources\wind.png" />
+        <BundleResource Include="Resources\weather.png" />
+        <BundleResource Include="Resources\settings.png" />
+        <BundleResource Include="Resources\pressure.png" />
+        <BundleResource Include="Resources\place.png" />
+        <BundleResource Include="Resources\menu.png" />
+        <BundleResource Include="Resources\listColor.png" />
+        <BundleResource Include="Resources\list.png" />
+        <BundleResource Include="Resources\humidity.png" />
+        <BundleResource Include="Resources\gridColor.png" />
+        <BundleResource Include="Resources\grid.png" />
+        <BundleResource Include="Resources\dashboard.png" />
+        <BundleResource Include="Resources\bg.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <InterfaceDefinition Include="Resources\LaunchScreen.storyboard"/>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+            <Visible>false</Visible>
+        </ImageAsset>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="System"/>
+        <Reference Include="System.Xml"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="Xamarin.iOS"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+        <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.763-beta" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\LocalizationProject\LocalizationProject.csproj">
+            <Project>{D619825F-A80A-4818-88DC-BA50BC34D4FA}</Project>
+            <Name>LocalizationProject</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\cloudiness.png" />
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
+</Project>

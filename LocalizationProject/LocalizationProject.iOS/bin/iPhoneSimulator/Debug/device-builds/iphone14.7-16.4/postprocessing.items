@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="LocalizationProject.iOS.app/LocalizationProject.iOS">
+      <BCSymbolMapName>LocalizationProject.iOS.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>LocalizationProject.iOS.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone14.7-16.4/mtouch-symbols.list</SymbolFile>
+      <DSymName>LocalizationProject.iOS.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/anastasijagjosheva/Projects/LocalizationProject/LocalizationProject/LocalizationProject.iOS</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
