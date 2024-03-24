@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="http://prismlibrary.com"
              xmlns:views="clr-namespace:LocalizationProject.Views;assembly=LocalizationProject"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="LocalizationProject.Views.MainPage"
              mvvm:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
@@ -29,6 +30,7 @@
                     Source="menu.png"
                     WidthRequest="23"
                     HeightRequest="15"
+                    Command="{Binding NavigateToSettingsCommand}"
                     HorizontalOptions="Start"
                     VerticalOptions="Center" />
                 <Label

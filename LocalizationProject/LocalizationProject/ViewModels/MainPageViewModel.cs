@@ -3,13 +3,16 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
 using LocalizationProject.Services.Weather;
+using LocalizationProject.Views;
 using Prism.AppModel;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace LocalizationProject.ViewModels
 {
@@ -41,12 +44,15 @@ namespace LocalizationProject.ViewModels
         }
 
         private readonly INavigationService _navigation;
+        public ICommand NavigateToSettingsCommand { get; }
+
 
         public MainPageViewModel(INavigationService navigation, IWeatherService weatherService, ILocationService locationService)
         {
             _navigation = navigation; 
             _weatherService = weatherService;
             _locationService = locationService;
+            NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             
             /*Weathers = new ObservableCollection<Weather>()
             {
@@ -132,6 +138,12 @@ namespace LocalizationProject.ViewModels
             await GetCurrentWeather();
             Console.WriteLine("Stigna do location" + Location);
            // Location = GetCurrentLocationCoordinates().Result;
+        }
+        
+        private async void NavigateToSettingsPage()
+        {
+            await _navigation.NavigateAsync("SettingsPage");
+            //await _navigation.NavigateTo<SettingsPage>();
         }
     }
 }

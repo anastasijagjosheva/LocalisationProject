@@ -1,4 +1,5 @@
 ﻿using System;
+using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
 using LocalizationProject.Services.Weather;
 using LocalizationProject.ViewModels;
@@ -29,6 +30,8 @@ namespace LocalizationProject
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
+
             containerRegistry.RegisterForNavigation<CakesCatalog, CakesCatalogViewModel>();
             
             containerRegistry.RegisterSingleton<ILocationService, LocationService>();
