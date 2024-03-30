@@ -108,6 +108,7 @@
         <BundleResource Include="Resources\grid.png" />
         <BundleResource Include="Resources\dashboard.png" />
         <BundleResource Include="Resources\bg.png" />
+        <BundleResource Include="Resources\arrowlefticon.png" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="Resources\LaunchScreen.storyboard"/>

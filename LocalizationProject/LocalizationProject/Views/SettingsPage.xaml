@@ -4,10 +4,108 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LocalizationProject.Views.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <!--<Grid
+                BackgroundColor="White"
+                RowDefinitions="Auto, Auto, Auto, Auto, *"
+                RowSpacing="0">-->
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout
+                    Grid.Row="0"
+                    Margin="20,50, 20, 0"
+                    Padding="0, 8, 8, 8"
+                    HorizontalOptions="Start"
+                    Orientation="Horizontal">
+                    <ImageButton
+                        Source="arrowlefticon.png"
+                        WidthRequest="23"
+                        HeightRequest="15"
+                        Command="{Binding BackCommand}"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <Label
+                    Grid.Row="1"
+                    Text="Settings"
+                    FontSize="30"
+                    Margin="16, 0, 0, 0"/>
+                <StackLayout
+                    Grid.Row="2"
+                    Margin="16, 6, 16, 6"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="2"
+                        Text="Temperature units"
+                        VerticalOptions="Center"/>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="EndAndExpand">
+                        <Picker x:Name="TemperatureUnits" 
+                                Title="Select a temperature unit"
+                                SelectedItem="{Binding TemperatureUnitSelectedCommand}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Celsius</x:String>
+                                    <x:String>Fahrenheit</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="3"
+                    Margin="16, 6, 16, 6"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="3"
+                        Text="Wind speed units"
+                        VerticalOptions="Center"/>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="EndAndExpand">
+                        <Picker x:Name="WindSpeedUnits" 
+                                Title="Select a wind speed unit"
+                                SelectedItem="{Binding WindSpeedUnitSelectedCommand}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Kilometers per hour (km/h)</x:String>
+                                    <x:String>Miles per hour (mph)</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="4"
+                    Margin="16, 6, 16, 6"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="4"
+                        Text="Language"
+                        VerticalOptions="Center"/>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="EndAndExpand">
+                        <Picker x:Name="Language" 
+                                Title="Select a language"
+                                SelectedItem="{Binding LanguageSelectedCommand}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>English</x:String>
+                                    <x:String>German</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
