@@ -2,7 +2,10 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalizationProject.Views.SettingsPage">
+             xmlns:mvvm="http://prismlibrary.com"
+             x:Class="LocalizationProject.Views.SettingsPage"
+             mvvm:ViewModelLocator.AutowireViewModel="True"
+             >
     <ContentPage.Content>
         <ScrollView>
             <!--<Grid
@@ -48,8 +51,8 @@
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
                         <Picker x:Name="TemperatureUnits" 
-                                Title="Select a temperature unit"
-                                SelectedItem="{Binding TemperatureUnitSelectedCommand}">
+                                Title="Select temperature unit"
+                                SelectedItem="{Binding SelectedTemperatureUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Celsius</x:String>
@@ -72,7 +75,7 @@
                         HorizontalOptions="EndAndExpand">
                         <Picker x:Name="WindSpeedUnits" 
                                 Title="Select a wind speed unit"
-                                SelectedItem="{Binding WindSpeedUnitSelectedCommand}">
+                                SelectedItem="{Binding SelectedWindSpeedUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Kilometers per hour (km/h)</x:String>
@@ -95,7 +98,7 @@
                         HorizontalOptions="EndAndExpand">
                         <Picker x:Name="Language" 
                                 Title="Select a language"
-                                SelectedItem="{Binding LanguageSelectedCommand}">
+                                SelectedItem="{Binding SelectedLanguage}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>English</x:String>
