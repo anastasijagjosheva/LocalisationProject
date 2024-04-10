@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace LocalizationProject.ViewModels
     {
         private readonly ILocationService _locationService;
         private readonly IWeatherService _weatherService;
-        
+
         private double _currentLat;
         private double _currentLon;
-        
+
+        private bool IsMainPageViewModelActive;
+
         public string CurrentCity { get; set; }
         public Location Location { get; set; }
 
@@ -32,7 +35,12 @@ namespace LocalizationProject.ViewModels
         public WeatherDetails WeatherDetails
         {
             get => _weatherDetails;
-            set => SetProperty(ref _weatherDetails, value);
+            //set => SetProperty(ref _weatherDetails, value);
+            set
+            {
+                _weatherDetails = value;
+                RaisePropertyChanged(nameof(WeatherDetails));
+            }
         }
 
         private ObservableCollection<Weather> _dailyWeatherForecast;
@@ -40,49 +48,66 @@ namespace LocalizationProject.ViewModels
         public ObservableCollection<Weather> DailyWeatherForecast
         {
             get => _dailyWeatherForecast;
+            
             set => SetProperty(ref _dailyWeatherForecast, value);
+        }
+        
+
+        private string _temperatureUnit = "TemperatureUnit";
+
+        public string TemperatureUnit
+        {
+            get => _temperatureUnit;
+            set
+            {
+                _temperatureUnit = value;
+                RaisePropertyChanged(nameof(TemperatureUnit));
+            }
         }
 
         private readonly INavigationService _navigation;
         public ICommand NavigateToSettingsCommand { get; }
 
 
-        public MainPageViewModel(INavigationService navigation, IWeatherService weatherService, ILocationService locationService)
+        public MainPageViewModel(INavigationService navigation, IWeatherService weatherService,
+            ILocationService locationService)
         {
-            _navigation = navigation; 
+            _navigation = navigation;
             _weatherService = weatherService;
             _locationService = locationService;
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             
-            /*Weathers = new ObservableCollection<Weather>()
+            /*// Subscribe to preference change messages
+            MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
             {
-                new Weather()
+                // Update values in MainPageViewModel when preferences change
+                if (key == "TemperatureUnit" || key == "WindSpeedUnit")
                 {
-                    Temp = "22", Date = "Sunday 16", Icon = "weather.png"
-                },
-                new Weather()
-                {
-                    Temp = "21", Date = "Monday 17", Icon = "weather.png"
-                },
-                new Weather
-                {
-                    Temp = "20", Date = "Tuesday 18", Icon = "weather.png"
-                },
-                new Weather
-                {
-                    Temp = "12", Date = "Wednesday 19", Icon = "weather.png"
-                },
-                new Weather
-                {
-                    Temp = "17", Date = "Thursday 20", Icon = "weather.png"
-                },
-                new Weather
-                {
-                    Temp = "20", Date = "Friday 21", Icon = "weather.png"
+                   // OnPropertyChanged(key); // Notify subscribers of the property change
+                    RaisePropertyChanged(nameof(key));
                 }
-            };*/
-        }
+            });*/
+            
+            // Example of initial values
+            
+            MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
 
+           IsMainPageViewModelActive = true;
+
+        }
+        
+        private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
+        {
+            // Update values in MainPageViewModel when preferences change
+            if (key == "TemperatureUnit" || key == "WindSpeedUnit")
+            {
+                TemperatureUnit = key;
+                WeatherDetails = WeatherDetails;
+                RaisePropertyChanged(TemperatureUnit); // Notify subscribers of the property change
+            }
+        }
+        
+        
         private async Task<Location> GetCurrentLocationCoordinates()
         {
             try
@@ -105,10 +130,10 @@ namespace LocalizationProject.ViewModels
                 var result = await _weatherService.GetCurrentWeatherAndDailyForecastByLatLon(_currentLat, _currentLon);
                 WeatherDetails = result.WeatherDetails;
                 DailyWeatherForecast = result.DailyWeatherForecast;
-                
+
                 Console.WriteLine("lalala");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.ToString());
             }
@@ -119,27 +144,42 @@ namespace LocalizationProject.ViewModels
             throw new NotImplementedException();
         }
 
-        public  void OnNavigatedTo(INavigationParameters parameters)
+        public void OnNavigatedTo(INavigationParameters parameters)
         {
-         
+            
+            // Subscribe to preference change messages
+           /*MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
+           {
+               
+              Debug.WriteLine($"Received parameter: {key}");
+
+               // Update values in MainPageViewModel when preferences change
+               if (key == "TemperatureUnit" || key == "WindSpeedUnit")
+               {
+                  // OnPropertyChanged(key); // Notify subscribers of the property change
+                  TemperatureUnit = key;
+               }
+           });*/
+            //MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
         }
 
         public void Destroy()
         {
+            IsMainPageViewModelActive = false;
             throw new NotImplementedException();
         }
 
-        
-        public async void  Initialize(INavigationParameters parameters)
+
+        public async void Initialize(INavigationParameters parameters)
         {
             Location = await Geolocation.GetLocationAsync();
             _currentLat = Location.Latitude;
             _currentLon = Location.Latitude;
             await GetCurrentWeather();
             Console.WriteLine("Stigna do location" + Location);
-           // Location = GetCurrentLocationCoordinates().Result;
+            // Location = GetCurrentLocationCoordinates().Result;
         }
-        
+
         private async void NavigateToSettingsPage()
         {
             await _navigation.NavigateAsync("SettingsPage");

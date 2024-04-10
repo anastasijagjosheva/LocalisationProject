@@ -5,6 +5,7 @@
              xmlns:mvvm="http://prismlibrary.com"
              xmlns:views="clr-namespace:LocalizationProject.Views;assembly=LocalizationProject"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:helpers="clr-namespace:LocalizationProject.Helpers;assembly=LocalizationProject"
              x:Class="LocalizationProject.Views.MainPage"
              mvvm:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
@@ -53,7 +54,7 @@
                         HeightRequest="50"
                         VerticalOptions="Center" />
                     <Label
-                        Text="{Binding WeatherDetails.Temp}"
+                        Text="{Binding WeatherDetails.Temp, Converter={StaticResource UnitConverter}, ConverterParameter='TemperatureUnit'}"
                         TextColor="White"
                         FontSize="70"
                         FontAttributes="Bold"

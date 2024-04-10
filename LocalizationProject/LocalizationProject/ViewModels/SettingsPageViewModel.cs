@@ -21,7 +21,8 @@ namespace LocalizationProject.ViewModels
             {
                 _selectedTemperatureUnit = value;
                 RaisePropertyChanged(nameof(SelectedTemperatureUnit));
-                Preferences.Set("temperatureUnit", value);
+                Preferences.Set("TemperatureUnit", value);
+                MessagingCenter.Send(this, "PreferenceChanged", "TemperatureUnit");
             }
         }
         
@@ -33,7 +34,7 @@ namespace LocalizationProject.ViewModels
             {
                 _selectedWindSpeedUnit = value;
                 RaisePropertyChanged(nameof(SelectedWindSpeedUnit));
-                Preferences.Set("windUnit", value);
+                Preferences.Set("WindUnit", value);
             }
         }
 
@@ -45,14 +46,11 @@ namespace LocalizationProject.ViewModels
             {
                 _selectedLanguage = value;
                 RaisePropertyChanged(nameof(SelectedLanguage));
-                Preferences.Set("language", value);
+                Preferences.Set("Language", value);
             }
         }
 
         public ICommand BackCommand { get; set; }
-        public ICommand TemperatureUnitSelectedCommand { get; private set; }
-        public ICommand WindSpeedUnitSelectedCommand { get; private set; }
-        public ICommand LanguageSelectedCommand { get; private set; }
         
         private readonly INavigationService _navigation;
         
@@ -60,50 +58,15 @@ namespace LocalizationProject.ViewModels
         {
             _navigation = navigation;
             BackCommand = new Command(BackCommandHandler);
-            SelectedTemperatureUnit = Preferences.Get("temperatureUnit", "Celsius");
-            SelectedWindSpeedUnit = Preferences.Get("windUnit", "Kilometers per hour (km/h)");
-            SelectedLanguage = Preferences.Get("language", "English)");
-            
+            SelectedTemperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
+            SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
+            SelectedLanguage = Preferences.Get("Language", "English");
         }
         
         private async void BackCommandHandler()
         {
+            
             await _navigation.GoBackAsync();
         }
-        
-        /*
-        private void OnTemperaturePickerSelectedItemChanged(object sender)
-        {
-            Picker picker = (Picker)sender;
-            if (picker.SelectedIndex != -1)
-            {
-                SelectedTemperatureUnit = picker.SelectedItem.ToString();
-                Preferences.Set("temperatureUnit", SelectedTemperatureUnit);
-            }
-        }
-        
-        private void OnWindSpeedPickerSelectedItemChanged(object sender)
-        {
-            Picker picker = (Picker)sender;
-            if (picker.SelectedIndex != -1)
-            {
-                SelectedWindSpeedUnit = picker.SelectedItem.ToString();
-                Preferences.Set("windUnit", SelectedWindSpeedUnit);
-
-            }
-        }
-        
-        private void OnLanguagePickerSelectedItemChanged(object sender)
-        {
-            Picker picker = (Picker)sender;
-            if (picker.SelectedIndex != -1)
-            {
-                SelectedLanguage = picker.SelectedItem.ToString();
-                Preferences.Set("language", SelectedLanguage);
-
-            }
-        }
-        */
-        
     }
 }

@@ -14,7 +14,7 @@ namespace LocalizationProject.Models
     public class WeatherDetails
     {
         public DateTime DateTime{ get; set; }
-        public int Temp { get; set; }
+        public double Temp { get; set; }
         public int Humidity { get; set; }
         public double Wind { get; set; }
         public int Pressure { get; set; }
