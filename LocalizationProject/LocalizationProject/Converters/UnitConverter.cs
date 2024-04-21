@@ -14,10 +14,13 @@ namespace LocalizationProject.Converters
         {
             var val = (double)value;
             Console.WriteLine(val);
+            
             var param = (string)parameter;
             Console.WriteLine(param);
+            
             var temperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             Console.WriteLine(temperatureUnit);
+            
             var windUnit= Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
             Console.WriteLine(windUnit);
 
@@ -27,9 +30,9 @@ namespace LocalizationProject.Converters
             switch(param)
             {
                 case "TemperatureUnit": 
-                    return temperatureUnit.Equals("Celsius") ? val : val * 9 / 5 + 32;
-                case "Speed": 
-                    return windUnit.Equals("Kilometers per hour (km/h)") ? $"{Math.Round(val, 1)} m/s" : $"{Math.Round(val, 1)} mph";
+                    return temperatureUnit.Equals("Celsius") ? $"{val}": $"{val * 9 / 5 + 32}";
+                case "WindUnit": 
+                    return windUnit.Equals("Kilometers per hour (km/h)") ? $"{Math.Round(val, 1)} km/h" : $"{Math.Round((val * 1000 / 3600), 1)} mps";
                 case "Language": 
                     return language.Equals("English") ? "C" : "F";
                 default: 

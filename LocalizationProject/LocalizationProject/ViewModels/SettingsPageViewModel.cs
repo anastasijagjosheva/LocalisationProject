@@ -35,6 +35,7 @@ namespace LocalizationProject.ViewModels
                 _selectedWindSpeedUnit = value;
                 RaisePropertyChanged(nameof(SelectedWindSpeedUnit));
                 Preferences.Set("WindUnit", value);
+                MessagingCenter.Send(this, "PreferenceChanged", "WindUnit");
             }
         }
 

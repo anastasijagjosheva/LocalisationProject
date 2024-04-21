@@ -1,13 +1,25 @@
 using System;
 using System.Collections.ObjectModel;
+using Prism.Mvvm;
 
 namespace LocalizationProject.Models
 {
-    public class Weather
+    public class Weather : BindableBase
     {
         public DateTime Date { get; set; }
         public string Icon { get; set; } = "weather.png";
-        public int Temp { get; set; }
+
+        private double _temp;
+        public double Temp
+        {
+            get => _temp;
+            //set => SetProperty(ref _temp, value);
+            set
+            {
+                _temp = value;
+                RaisePropertyChanged(nameof(Temp));
+            }
+        }
     }
 
 

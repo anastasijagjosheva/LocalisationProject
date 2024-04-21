@@ -51,7 +51,7 @@
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
                         <Picker x:Name="TemperatureUnits" 
-                                Title="Select temperature unit"
+                                Title="Select a temperature unit"
                                 SelectedItem="{Binding SelectedTemperatureUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">

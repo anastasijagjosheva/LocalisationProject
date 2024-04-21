@@ -14,6 +14,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace LocalizationProject.ViewModels
 {
@@ -48,10 +49,14 @@ namespace LocalizationProject.ViewModels
         public ObservableCollection<Weather> DailyWeatherForecast
         {
             get => _dailyWeatherForecast;
-            
-            set => SetProperty(ref _dailyWeatherForecast, value);
+            //set => SetProperty(ref _dailyWeatherForecast, value);
+            set
+            {
+                _dailyWeatherForecast = value;
+                RaisePropertyChanged(nameof(DailyWeatherForecast));
+            }
         }
-        
+
 
         private string _temperatureUnit = "TemperatureUnit";
 
@@ -62,6 +67,17 @@ namespace LocalizationProject.ViewModels
             {
                 _temperatureUnit = value;
                 RaisePropertyChanged(nameof(TemperatureUnit));
+            }
+        }
+
+        private string _windUnit = "WindUnit";
+        public string WindUnit
+        {
+            get => _windUnit;
+            set
+            {
+                _windUnit = value;
+                RaisePropertyChanged(nameof(WindUnit));
             }
         }
 
@@ -76,7 +92,7 @@ namespace LocalizationProject.ViewModels
             _weatherService = weatherService;
             _locationService = locationService;
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
-            
+
             /*// Subscribe to preference change messages
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
             {
@@ -87,27 +103,39 @@ namespace LocalizationProject.ViewModels
                     RaisePropertyChanged(nameof(key));
                 }
             });*/
-            
+
             // Example of initial values
-            
+
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
 
-           IsMainPageViewModelActive = true;
-
+            IsMainPageViewModelActive = true;
         }
-        
+
         private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
         {
             // Update values in MainPageViewModel when preferences change
-            if (key == "TemperatureUnit" || key == "WindSpeedUnit")
+            if (key == "TemperatureUnit")
             {
                 TemperatureUnit = key;
+
+                var newDailyWeatherForecast = new ObservableCollection<Weather>();
+                _dailyWeatherForecast.ForEach(w =>
+                {
+                    newDailyWeatherForecast.Add(w);
+                });
+                
+                DailyWeatherForecast = newDailyWeatherForecast;
                 WeatherDetails = WeatherDetails;
-                RaisePropertyChanged(TemperatureUnit); // Notify subscribers of the property change
+            }
+            else if (key == "WindUnit")
+            {
+                WindUnit = key;
+                WeatherDetails = WeatherDetails;
+                RaisePropertyChanged(WindUnit);
             }
         }
-        
-        
+
+
         private async Task<Location> GetCurrentLocationCoordinates()
         {
             try
@@ -146,20 +174,19 @@ namespace LocalizationProject.ViewModels
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            
             // Subscribe to preference change messages
-           /*MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
-           {
-               
-              Debug.WriteLine($"Received parameter: {key}");
+            /*MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
+            {
 
-               // Update values in MainPageViewModel when preferences change
-               if (key == "TemperatureUnit" || key == "WindSpeedUnit")
-               {
-                  // OnPropertyChanged(key); // Notify subscribers of the property change
-                  TemperatureUnit = key;
-               }
-           });*/
+               Debug.WriteLine($"Received parameter: {key}");
+
+                // Update values in MainPageViewModel when preferences change
+                if (key == "TemperatureUnit" || key == "WindSpeedUnit")
+                {
+                   // OnPropertyChanged(key); // Notify subscribers of the property change
+                   TemperatureUnit = key;
+                }
+            });*/
             //MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
         }
 
