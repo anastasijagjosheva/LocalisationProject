@@ -1,10 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<dryIoc:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dryIoc="http://prismlibrary.com"
-             x:Class="LocalizationProject.App">
-    <dryIoc:PrismApplication.Resources>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
+<dryIoc:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:dryIoc="http://prismlibrary.com"
+                         xmlns:converters="clr-namespace:LocalizationProject.Converters;assembly=LocalizationProject"
+                         x:Class="LocalizationProject.App">
+    <dryIoc:PrismApplication.Resources>
+        <ResourceDictionary>
+            <converters:UnitConverter x:Key="UnitConverter" />
+        </ResourceDictionary>
     </dryIoc:PrismApplication.Resources>
 </dryIoc:PrismApplication>
-
