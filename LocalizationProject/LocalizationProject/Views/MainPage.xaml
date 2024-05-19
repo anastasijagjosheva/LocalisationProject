@@ -5,9 +5,9 @@
              xmlns:mvvm="http://prismlibrary.com"
              xmlns:views="clr-namespace:LocalizationProject.Views;assembly=LocalizationProject"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:helpers="clr-namespace:LocalizationProject.Helpers;assembly=LocalizationProject"
              xmlns:converters="clr-namespace:LocalizationProject.Converters;assembly=LocalizationProject"
              xmlns:models="clr-namespace:LocalizationProject.Models;assembly=LocalizationProject"
+             xmlns:resources="clr-namespace:LocalizationProject.LocalizationResources;assembly=LocalizationProject"
              x:Class="LocalizationProject.Views.MainPage"
              mvvm:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
@@ -151,7 +151,7 @@
                                    FontSize="14"
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center" />
-                            <Label Text="Pressure"
+                            <Label Text="{x:Static resources:AppResources.Pressure}"
                                    TextColor="#7D7D7D"
                                    FontSize="11"
                                    HorizontalOptions="Center" />

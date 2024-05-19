@@ -1,15 +1,11 @@
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
 using LocalizationProject.Services.Weather;
-using LocalizationProject.Views;
-using Prism.AppModel;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Essentials;
@@ -25,18 +21,14 @@ namespace LocalizationProject.ViewModels
 
         private double _currentLat;
         private double _currentLon;
-
-        private bool IsMainPageViewModelActive;
-
+        
         public string CurrentCity { get; set; }
         public Location Location { get; set; }
 
         private WeatherDetails _weatherDetails;
-
         public WeatherDetails WeatherDetails
         {
             get => _weatherDetails;
-            //set => SetProperty(ref _weatherDetails, value);
             set
             {
                 _weatherDetails = value;
@@ -45,21 +37,17 @@ namespace LocalizationProject.ViewModels
         }
 
         private ObservableCollection<Weather> _dailyWeatherForecast;
-
         public ObservableCollection<Weather> DailyWeatherForecast
         {
             get => _dailyWeatherForecast;
-            //set => SetProperty(ref _dailyWeatherForecast, value);
             set
             {
                 _dailyWeatherForecast = value;
                 RaisePropertyChanged(nameof(DailyWeatherForecast));
             }
         }
-
-
+        
         private string _temperatureUnit = "TemperatureUnit";
-
         public string TemperatureUnit
         {
             get => _temperatureUnit;
@@ -80,6 +68,16 @@ namespace LocalizationProject.ViewModels
                 RaisePropertyChanged(nameof(WindUnit));
             }
         }
+        private string _language = "Language";
+        public string Language
+        {
+            get => _language;
+            set
+            {
+                _language = value;
+                RaisePropertyChanged();
+            }
+        }
 
         private readonly INavigationService _navigation;
         public ICommand NavigateToSettingsCommand { get; }
@@ -92,32 +90,15 @@ namespace LocalizationProject.ViewModels
             _weatherService = weatherService;
             _locationService = locationService;
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
-
-            /*// Subscribe to preference change messages
-            MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
-            {
-                // Update values in MainPageViewModel when preferences change
-                if (key == "TemperatureUnit" || key == "WindSpeedUnit")
-                {
-                   // OnPropertyChanged(key); // Notify subscribers of the property change
-                    RaisePropertyChanged(nameof(key));
-                }
-            });*/
-
-            // Example of initial values
-
+            
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
-
-            IsMainPageViewModelActive = true;
         }
-
         private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
         {
             // Update values in MainPageViewModel when preferences change
             if (key == "TemperatureUnit")
             {
                 TemperatureUnit = key;
-
                 var newDailyWeatherForecast = new ObservableCollection<Weather>();
                 _dailyWeatherForecast.ForEach(w =>
                 {
@@ -133,9 +114,14 @@ namespace LocalizationProject.ViewModels
                 WeatherDetails = WeatherDetails;
                 RaisePropertyChanged(WindUnit);
             }
+            else if (key == "Language")
+            {
+                Language = key;
+                WeatherDetails = WeatherDetails;
+                RaisePropertyChanged();
+            }
         }
-
-
+        
         private async Task<Location> GetCurrentLocationCoordinates()
         {
             try
@@ -158,8 +144,6 @@ namespace LocalizationProject.ViewModels
                 var result = await _weatherService.GetCurrentWeatherAndDailyForecastByLatLon(_currentLat, _currentLon);
                 WeatherDetails = result.WeatherDetails;
                 DailyWeatherForecast = result.DailyWeatherForecast;
-
-                Console.WriteLine("lalala");
             }
             catch (Exception ex)
             {
@@ -174,43 +158,25 @@ namespace LocalizationProject.ViewModels
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            // Subscribe to preference change messages
-            /*MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", (sender, key) =>
-            {
-
-               Debug.WriteLine($"Received parameter: {key}");
-
-                // Update values in MainPageViewModel when preferences change
-                if (key == "TemperatureUnit" || key == "WindSpeedUnit")
-                {
-                   // OnPropertyChanged(key); // Notify subscribers of the property change
-                   TemperatureUnit = key;
-                }
-            });*/
-            //MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
+            
         }
 
         public void Destroy()
         {
-            IsMainPageViewModelActive = false;
             throw new NotImplementedException();
         }
-
-
+        
         public async void Initialize(INavigationParameters parameters)
         {
             Location = await Geolocation.GetLocationAsync();
             _currentLat = Location.Latitude;
             _currentLon = Location.Latitude;
             await GetCurrentWeather();
-            Console.WriteLine("Stigna do location" + Location);
             // Location = GetCurrentLocationCoordinates().Result;
         }
-
         private async void NavigateToSettingsPage()
         {
             await _navigation.NavigateAsync("SettingsPage");
-            //await _navigation.NavigateTo<SettingsPage>();
         }
     }
 }

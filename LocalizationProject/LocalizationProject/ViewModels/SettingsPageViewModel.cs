@@ -48,6 +48,8 @@ namespace LocalizationProject.ViewModels
                 _selectedLanguage = value;
                 RaisePropertyChanged(nameof(SelectedLanguage));
                 Preferences.Set("Language", value);
+                Localization.TranslateManager.SetLanguage(_selectedLanguage);
+                MessagingCenter.Send(this, "PreferenceChanged", "Language");
             }
         }
 
@@ -61,7 +63,14 @@ namespace LocalizationProject.ViewModels
             BackCommand = new Command(BackCommandHandler);
             SelectedTemperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
-            SelectedLanguage = Preferences.Get("Language", "English");
+            try
+            {
+                SelectedLanguage = Preferences.Get("Language", "en-GB");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
         
         private async void BackCommandHandler()

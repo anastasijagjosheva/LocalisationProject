@@ -8,10 +8,6 @@
              >
     <ContentPage.Content>
         <ScrollView>
-            <!--<Grid
-                BackgroundColor="White"
-                RowDefinitions="Auto, Auto, Auto, Auto, *"
-                RowSpacing="0">-->
             <Grid VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -101,8 +97,8 @@
                                 SelectedItem="{Binding SelectedLanguage}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>English</x:String>
-                                    <x:String>German</x:String>
+                                    <x:String>en-GB</x:String>
+                                    <x:String>mk</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
