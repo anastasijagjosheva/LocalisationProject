@@ -118,7 +118,7 @@ namespace LocalizationProject.ViewModels
             {
                 Language = key;
                 WeatherDetails = WeatherDetails;
-                RaisePropertyChanged();
+                RaisePropertyChanged(null);
             }
         }
         

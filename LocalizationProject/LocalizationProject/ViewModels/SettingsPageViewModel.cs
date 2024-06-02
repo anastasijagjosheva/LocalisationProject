@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using LocalizationProject.Localization;
 using Prism.AppModel;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -48,14 +50,16 @@ namespace LocalizationProject.ViewModels
                 _selectedLanguage = value;
                 RaisePropertyChanged(nameof(SelectedLanguage));
                 Preferences.Set("Language", value);
-                Localization.TranslateManager.SetLanguage(_selectedLanguage);
-                MessagingCenter.Send(this, "PreferenceChanged", "Language");
+                var newCulture = new CultureInfo(_selectedLanguage);
+                LocalizationResourceManager.Instance.SetCulture(newCulture);
+                //MessagingCenter.Send(this, "PreferenceChanged", "Language");
             }
         }
 
         public ICommand BackCommand { get; set; }
         
         private readonly INavigationService _navigation;
+
         
         public SettingsPageViewModel(INavigationService navigation)
         {
@@ -73,9 +77,9 @@ namespace LocalizationProject.ViewModels
             }
         }
         
+        
         private async void BackCommandHandler()
         {
-            
             await _navigation.GoBackAsync();
         }
     }
