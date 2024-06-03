@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LocalizationProject.Localization;
 using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
 using LocalizationProject.Services.Weather;
@@ -92,7 +93,22 @@ namespace LocalizationProject.ViewModels
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
+            MessagingCenter.Subscribe<LocalizationResourceManager, string>(this, "PreferenceChanged", OnPreferenceChanged2);
+
         }
+
+        private void OnPreferenceChanged2(LocalizationResourceManager sender, string key)
+        {
+            if (key == "Language")
+            {
+                Language = key;
+                AppResourcesHelper.GetString(key);
+                
+                WeatherDetails = WeatherDetails;
+                RaisePropertyChanged(String.Empty);;
+            }
+        }
+
         private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
         {
             // Update values in MainPageViewModel when preferences change
@@ -122,6 +138,7 @@ namespace LocalizationProject.ViewModels
             }
         }
         
+
         private async Task<Location> GetCurrentLocationCoordinates()
         {
             try

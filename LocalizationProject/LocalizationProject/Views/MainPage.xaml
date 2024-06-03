@@ -108,9 +108,9 @@
                                 FontAttributes="Bold"
                                 HorizontalOptions="Center" />
                             <Label
-                                Text="Humidity"
+                                Text="{Binding [Humidity].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}" 
                                 TextColor="#7D7D7D"
-                                FontSize="11"
+                                FontSize="14"
                                 HorizontalOptions="Center" />
                         </StackLayout>
                     </StackLayout>
@@ -130,9 +130,9 @@
                                 FontAttributes="Bold"
                                 HorizontalOptions="Center" />
                             <Label
-                                Text="Wind"
+                                Text="{Binding [Wind].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}" 
                                 TextColor="#7D7D7D"
-                                FontSize="11"
+                                FontSize="14"
                                 HorizontalOptions="Center" />
                         </StackLayout>
                     </StackLayout>
@@ -150,22 +150,10 @@
                                    FontSize="14"
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center" />
-                            
-
-                            <Label Text="{Binding Source={StaticResource Loc}, Path=[Pressure]}"
-                                   TextColor="#7D7D7D"
-                                   FontSize="11"
-                                   HorizontalOptions="Center"/>
-
-                            <!-- <Label Text="{Binding Source={x:Static localization:LocalizationResourceManager.Instance}, Path=[Pressure]}"  -->
-                            <!--        TextColor="#7D7D7D" -->
-                            <!--        FontSize="11" -->
-                            <!--        HorizontalOptions="Center"/> -->
-                            
-                            <!-- <Label Text="{x:Static resources:AppResources.Pressure}" -->
-                            <!--        TextColor="#7D7D7D" -->
-                            <!--        FontSize="11" -->
-                            <!--        HorizontalOptions="Center" /> -->
+                            <Label  Text="{Binding [Pressure].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}" 
+                                    TextColor="#7D7D7D"
+                                    FontSize="14"
+                                    HorizontalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Column="3"
@@ -182,9 +170,9 @@
                                    FontSize="14"
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center" />
-                            <Label Text="Cloudiness"
+                            <Label Text="{Binding [Cloudiness].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}" 
                                    TextColor="#7D7D7D"
-                                   FontSize="11"
+                                   FontSize="14"
                                    HorizontalOptions="Center"/>
                         </StackLayout>
                     </StackLayout>

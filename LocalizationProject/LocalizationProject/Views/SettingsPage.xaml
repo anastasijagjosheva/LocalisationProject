@@ -98,7 +98,8 @@
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>en-GB</x:String>
-                                    <x:String>mk</x:String>
+                                    <x:String>mk-mk</x:String>
+                                    <x:String>de-de</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
