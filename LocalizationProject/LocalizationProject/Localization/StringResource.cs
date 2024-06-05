@@ -5,10 +5,11 @@ namespace LocalizationProject.Localization
 {
     public class StringResource : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public StringResource(string key, string value)
         {
-            this.Key = key;
-            this.Value = value;
+            Key = key;
+            Value = value;
         }
 
         private string value;
@@ -16,15 +17,13 @@ namespace LocalizationProject.Localization
         public string Key { get; }
 
         public string Value {
-            get => this.value;
+            get => value;
             set {
                 this.value = value;
                 OnPropertyChanged();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -93,22 +93,8 @@ namespace LocalizationProject.ViewModels
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
-            MessagingCenter.Subscribe<LocalizationResourceManager, string>(this, "PreferenceChanged", OnPreferenceChanged2);
-
         }
-
-        private void OnPreferenceChanged2(LocalizationResourceManager sender, string key)
-        {
-            if (key == "Language")
-            {
-                Language = key;
-                AppResourcesHelper.GetString(key);
-                
-                WeatherDetails = WeatherDetails;
-                RaisePropertyChanged(String.Empty);;
-            }
-        }
-
+        
         private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
         {
             // Update values in MainPageViewModel when preferences change
@@ -130,15 +116,8 @@ namespace LocalizationProject.ViewModels
                 WeatherDetails = WeatherDetails;
                 RaisePropertyChanged(WindUnit);
             }
-            else if (key == "Language")
-            {
-                Language = key;
-                WeatherDetails = WeatherDetails;
-                RaisePropertyChanged(null);
-            }
         }
         
-
         private async Task<Location> GetCurrentLocationCoordinates()
         {
             try

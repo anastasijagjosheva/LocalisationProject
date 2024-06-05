@@ -52,7 +52,6 @@ namespace LocalizationProject.ViewModels
                 Preferences.Set("Language", value);
                 var newCulture = new CultureInfo(_selectedLanguage);
                 LocalizationResourceManager.Instance.SetCulture(newCulture);
-                //MessagingCenter.Send(this, "PreferenceChanged", "Language");
             }
         }
 
