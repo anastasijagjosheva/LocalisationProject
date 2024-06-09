@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LocalizationProject.Extensions;
 using LocalizationProject.Localization;
 using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
@@ -22,6 +23,7 @@ namespace LocalizationProject.ViewModels
 
         private double _currentLat;
         private double _currentLon;
+        private readonly string _originalFormat = ("MM/dd/yyyy HH:mm");
         
         public string CurrentCity { get; set; }
         public Location Location { get; set; }
@@ -115,6 +117,18 @@ namespace LocalizationProject.ViewModels
                 WindUnit = key;
                 WeatherDetails = WeatherDetails;
                 RaisePropertyChanged(WindUnit);
+            }
+            else if (key == "Language")
+            {
+                Language = key;
+                WeatherDetails = WeatherDetails;
+                var newDailyWeatherForecast = new ObservableCollection<Weather>();
+                _dailyWeatherForecast.ForEach(w =>
+                {
+                    newDailyWeatherForecast.Add(w);
+                });
+                
+                DailyWeatherForecast = newDailyWeatherForecast;
             }
         }
         

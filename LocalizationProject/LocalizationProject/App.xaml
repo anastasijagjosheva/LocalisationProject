@@ -8,6 +8,7 @@
     <dryIoc:PrismApplication.Resources>
         <ResourceDictionary>
             <converters:UnitConverter x:Key="UnitConverter" />
+            <converters:DateTimeToLocalizedStringConverter x:Key="DateTimeToLocalizedStringConverter"/>
         </ResourceDictionary>
     </dryIoc:PrismApplication.Resources>
 </dryIoc:PrismApplication>

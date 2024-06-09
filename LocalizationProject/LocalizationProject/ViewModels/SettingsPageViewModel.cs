@@ -52,6 +52,7 @@ namespace LocalizationProject.ViewModels
                 Preferences.Set("Language", value);
                 var newCulture = new CultureInfo(_selectedLanguage);
                 LocalizationResourceManager.Instance.SetCulture(newCulture);
+                MessagingCenter.Send(this, "PreferenceChanged", "Language");
             }
         }
 
@@ -68,7 +69,7 @@ namespace LocalizationProject.ViewModels
             SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
             try
             {
-                SelectedLanguage = Preferences.Get("Language", "en-GB");
+                SelectedLanguage = Preferences.Get("Language", "en-us");
             }
             catch (Exception ex)
             {

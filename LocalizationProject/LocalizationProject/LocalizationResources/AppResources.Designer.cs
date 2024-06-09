@@ -68,5 +68,11 @@ namespace LocalizationProject.LocalizationResources {
                 return ResourceManager.GetString("Cloudiness", resourceCulture);
             }
         }
+        
+        internal static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
     }
 }

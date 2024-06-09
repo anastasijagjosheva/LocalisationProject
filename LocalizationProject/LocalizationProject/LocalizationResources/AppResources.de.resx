@@ -23,4 +23,7 @@
     <data name="Wind" xml:space="preserve">
         <value>Wind</value>
     </data>
+    <data name="City" xml:space="preserve">
+        <value>SKOPJE, MK</value>
+    </data>
 </root>

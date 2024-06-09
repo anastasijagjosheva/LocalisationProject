@@ -30,4 +30,7 @@
     <data name="Cloudiness" xml:space="preserve">
         <value>Cloudiness</value>
     </data>
+    <data name="City" xml:space="preserve">
+        <value>SKOPJE, MK</value>
+    </data>
 </root>

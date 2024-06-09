@@ -15,7 +15,7 @@ namespace LocalizationProject.Localization
         private static readonly ResourceManager ResourceManager =
             new ResourceManager("LocalizationProject.LocalizationResources.AppResources", typeof(LocalizationResourceManager).Assembly);
 
-        private CultureInfo _cultureInfo = new CultureInfo("mk-mk");
+        private static CultureInfo _cultureInfo = new CultureInfo("en-us");
         
         private static LocalizationResourceManager _instance;
         public static LocalizationResourceManager Instance =>
@@ -39,6 +39,11 @@ namespace LocalizationProject.Localization
             foreach (StringResource stringResource in _resources.ToList()) {
                 stringResource.Value = ResourceManager.GetString(stringResource.Key, _cultureInfo);
             }
+        }
+
+        public static CultureInfo GetLanguageCultureInfo()
+        {
+            return _cultureInfo;
         }
     }
 }

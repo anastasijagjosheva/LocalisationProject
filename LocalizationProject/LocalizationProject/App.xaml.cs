@@ -25,7 +25,7 @@ namespace LocalizationProject
         {
             InitializeComponent();
             
-            var culture = new CultureInfo("mk-mk");
+            var culture = new CultureInfo("en-us");
             LocalizationResourceManager.Instance.SetCulture(culture);
             AppResources.Culture = culture;
             
