@@ -59,7 +59,6 @@ namespace LocalizationProject.ViewModels
         public ICommand BackCommand { get; set; }
         
         private readonly INavigationService _navigation;
-
         
         public SettingsPageViewModel(INavigationService navigation)
         {

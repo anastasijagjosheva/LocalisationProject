@@ -12,7 +12,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="Wind" xml:space="preserve">
-        <value>Ветар</value>
+        <value>Ветер</value>
     </data>
     <data name="Cloudiness" xml:space="preserve">
         <value>Облачност</value>
@@ -25,5 +25,17 @@
     </data>
     <data name="City" xml:space="preserve">
         <value>СКОПЈЕ, МК</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Поставки</value>
+    </data>
+    <data name="TemperatureUnit" xml:space="preserve">
+        <value>Единица за температура</value>
+    </data>
+    <data name="WindUnit" xml:space="preserve">
+        <value>Единица за брзина на ветерот</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Јазик</value>
     </data>
 </root>

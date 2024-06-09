@@ -36,8 +36,6 @@ namespace LocalizationProject
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
 
-            containerRegistry.RegisterForNavigation<CakesCatalog, CakesCatalogViewModel>();
-            
             containerRegistry.RegisterSingleton<ILocationService, LocationService>();
             containerRegistry.RegisterSingleton<IWeatherService, WeatherService>();
         }

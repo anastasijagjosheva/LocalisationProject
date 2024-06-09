@@ -3,9 +3,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="http://prismlibrary.com"
+             xmlns:localization="clr-namespace:LocalizationProject.Localization;assembly=LocalizationProject"
              x:Class="LocalizationProject.Views.SettingsPage"
-             mvvm:ViewModelLocator.AutowireViewModel="True"
-             >
+             mvvm:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Resources>
+        <localization:LocalizationResourceManager x:Key="Loc" />
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <Grid VerticalOptions="FillAndExpand">
@@ -32,27 +35,28 @@
                 </StackLayout>
                 <Label
                     Grid.Row="1"
-                    Text="Settings"
-                    FontSize="30"
-                    Margin="16, 0, 0, 0"/>
+                    Text="{Binding [Settings].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                    FontSize="25"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="16, 16, 0, 0" />
                 <StackLayout
                     Grid.Row="2"
-                    Margin="16, 6, 16, 6"
+                    Margin="16, 16, 16, 6"
                     Orientation="Horizontal">
                     <Label
                         Grid.Row="2"
-                        Text="Temperature units"
-                        VerticalOptions="Center"/>
+                        Text="{Binding [TemperatureUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        VerticalOptions="Center" 
+                        FontSize="18"/>
                     <StackLayout
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
-                        <Picker x:Name="TemperatureUnits" 
-                                Title="Select a temperature unit"
+                        <Picker x:Name="TemperatureUnits"
                                 SelectedItem="{Binding SelectedTemperatureUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>Celsius</x:String>
-                                    <x:String>Fahrenheit</x:String>
+                                    <x:String>°C</x:String>
+                                    <x:String>°F</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
@@ -64,18 +68,18 @@
                     Orientation="Horizontal">
                     <Label
                         Grid.Row="3"
-                        Text="Wind speed units"
-                        VerticalOptions="Center"/>
+                        Text="{Binding [WindUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        VerticalOptions="Center"
+                        FontSize="18"/>
                     <StackLayout
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
-                        <Picker x:Name="WindSpeedUnits" 
-                                Title="Select a wind speed unit"
+                        <Picker x:Name="WindSpeedUnits"
                                 SelectedItem="{Binding SelectedWindSpeedUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>Kilometers per hour (km/h)</x:String>
-                                    <x:String>Miles per hour (mph)</x:String>
+                                    <x:String>km/h</x:String>
+                                    <x:String>mph</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
@@ -87,13 +91,13 @@
                     Orientation="Horizontal">
                     <Label
                         Grid.Row="4"
-                        Text="Language"
-                        VerticalOptions="Center"/>
+                        Text="{Binding [Language].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        VerticalOptions="Center" 
+                        FontSize="18"/>
                     <StackLayout
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
-                        <Picker x:Name="Language" 
-                                Title="Select a language"
+                        <Picker x:Name="Language"
                                 SelectedItem="{Binding SelectedLanguage}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">

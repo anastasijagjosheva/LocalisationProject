@@ -23,7 +23,6 @@ namespace LocalizationProject.ViewModels
 
         private double _currentLat;
         private double _currentLon;
-        private readonly string _originalFormat = ("MM/dd/yyyy HH:mm");
         
         public string CurrentCity { get; set; }
         public Location Location { get; set; }
@@ -84,8 +83,7 @@ namespace LocalizationProject.ViewModels
 
         private readonly INavigationService _navigation;
         public ICommand NavigateToSettingsCommand { get; }
-
-
+        
         public MainPageViewModel(INavigationService navigation, IWeatherService weatherService,
             ILocationService locationService)
         {
@@ -99,7 +97,6 @@ namespace LocalizationProject.ViewModels
         
         private void OnPreferenceChanged(SettingsPageViewModel sender, string key)
         {
-            // Update values in MainPageViewModel when preferences change
             if (key == "TemperatureUnit")
             {
                 TemperatureUnit = key;

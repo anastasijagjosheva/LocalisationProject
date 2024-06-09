@@ -12,10 +12,10 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="Cloudiness" xml:space="preserve">
-        <value>wolkig</value>
+        <value>Bewölkung </value>
     </data>
     <data name="Humidity" xml:space="preserve">
-        <value>feucht</value>
+        <value>Feuchtigkeit</value>
     </data>
     <data name="Pressure" xml:space="preserve">
         <value>Druck</value>
@@ -25,5 +25,17 @@
     </data>
     <data name="City" xml:space="preserve">
         <value>SKOPJE, MK</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Einstellungen</value>
+    </data>
+    <data name="TemperatureUnit" xml:space="preserve">
+        <value>Temperatureinheit</value>
+    </data>
+    <data name="WindUnit" xml:space="preserve">
+        <value>Windgeschwindigkeitseinheit</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Sprache</value>
     </data>
 </root>

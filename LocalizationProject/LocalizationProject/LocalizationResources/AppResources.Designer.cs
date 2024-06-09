@@ -74,5 +74,29 @@ namespace LocalizationProject.LocalizationResources {
                 return ResourceManager.GetString("City", resourceCulture);
             }
         }
+        
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        internal static string TemperatureUnit {
+            get {
+                return ResourceManager.GetString("TemperatureUnit", resourceCulture);
+            }
+        }
+        
+        internal static string WindUnit {
+            get {
+                return ResourceManager.GetString("WindUnit", resourceCulture);
+            }
+        }
+        
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
     }
 }
