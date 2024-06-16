@@ -182,7 +182,7 @@
                             BackgroundColor="{Binding BackgroundColor1}">
                             <Button
                                 AutomationId="Button1"
-                                Text="EN"
+                                Text="EN-US"
                                 FontFamily="RegularFont"
                                 FontSize="Small"
                                 TextColor="Black"
