@@ -109,6 +109,9 @@
         <BundleResource Include="Resources\dashboard.png" />
         <BundleResource Include="Resources\bg.png" />
         <BundleResource Include="Resources\arrowlefticon.png" />
+        <BundleResource Include="Resources\sunny.png" />
+        <BundleResource Include="Resources\sunnycloudy.png" />
+        <BundleResource Include="Resources\sunnycloudyblack.png" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="Resources\LaunchScreen.storyboard"/>
