@@ -70,6 +70,17 @@ namespace LocalizationProject.ViewModels
                 RaisePropertyChanged(nameof(WindUnit));
             }
         }
+        
+        private string _pressureUnit = "PressureUnit";
+        public string PressureUnit
+        {
+            get => _pressureUnit;
+            set
+            {
+                _pressureUnit = value;
+                RaisePropertyChanged(nameof(PressureUnit));
+            }
+        }
         private string _language = "Language";
         public string Language
         {
@@ -114,6 +125,12 @@ namespace LocalizationProject.ViewModels
                 WindUnit = key;
                 WeatherDetails = WeatherDetails;
                 RaisePropertyChanged(WindUnit);
+            }
+            else if (key == "PressureUnit")
+            {
+                PressureUnit = key;
+                WeatherDetails = WeatherDetails;
+                RaisePropertyChanged(PressureUnit);
             }
             else if (key == "Language")
             {

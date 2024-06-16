@@ -17,6 +17,7 @@ namespace LocalizationProject.Converters
             
             var temperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             var windUnit= Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
+            var pressureUnit= Preferences.Get("PressureUnit", "hpa");
             var language= Preferences.Get("Language", "English");
 
             switch(param)
@@ -25,6 +26,8 @@ namespace LocalizationProject.Converters
                     return temperatureUnit.Equals("°C") ? $"{val}": $"{val * 9 / 5 + 32}";
                 case "WindUnit": 
                     return windUnit.Equals("km/h") ? $"{Math.Round(val, 1)} km/h" : $"{Math.Round((val * 1000 / 3600), 1)} mps";
+                case "PressureUnit": 
+                    return pressureUnit.Equals("hpa") ? $"{val} hpa": $"{val / 1000} bar";
                 case "TempUnitIcon": 
                     return temperatureUnit.Equals("°C") ? "°C": "°F";
                 default: 
