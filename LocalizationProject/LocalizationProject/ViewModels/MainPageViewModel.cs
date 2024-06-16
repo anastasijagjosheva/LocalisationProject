@@ -3,8 +3,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using LocalizationProject.Extensions;
-using LocalizationProject.Localization;
 using LocalizationProject.Models;
 using LocalizationProject.Services.Location;
 using LocalizationProject.Services.Weather;
@@ -102,6 +100,7 @@ namespace LocalizationProject.ViewModels
             _weatherService = weatherService;
             _locationService = locationService;
             
+             
             NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
         }
@@ -196,6 +195,28 @@ namespace LocalizationProject.ViewModels
             _currentLat = Location.Latitude;
             _currentLon = Location.Latitude;
             await GetCurrentWeather();
+
+
+            if (WeatherDetails.Temp >= 35)
+            {
+                WeatherDetails.Icon = "sunny.png";
+            }
+            else {
+                    WeatherDetails.Icon = "sunnycloudy.png";
+            }
+            
+            foreach (var day in DailyWeatherForecast)
+            {
+                if (day.Temp > 35)
+                {
+                    day.Icon = "sunny.png";
+                }
+                else if (day.Temp >= 33 && day.Temp <= 35)
+                {
+                    day.Icon = "sunnycloudy.png";
+                }
+            }
+
             // Location = GetCurrentLocationCoordinates().Result;
         }
         private async void NavigateToSettingsPage()

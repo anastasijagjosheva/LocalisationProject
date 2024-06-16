@@ -33,6 +33,8 @@ namespace LocalizationProject.Models
         public double Wind { get; set; }
         public double Pressure { get; set; }
         public int Cloudiness { get; set; }
+        public string Icon { get; set; } = "weather.png";
+
     }
         
     
