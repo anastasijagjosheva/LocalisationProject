@@ -52,9 +52,9 @@
                     Orientation="Horizontal"
                     HorizontalOptions="Center">
                     <Image
-                        Source="sunny.png"
-                        WidthRequest="50"
-                        HeightRequest="50"
+                        Source="sunnycloudy.png"
+                        WidthRequest="60"
+                        HeightRequest="60"
                         VerticalOptions="Center" />
                     <Label
                         Text="{Binding WeatherDetails.Temp, Converter={StaticResource UnitConverter}, ConverterParameter='TemperatureUnit'}"
