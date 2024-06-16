@@ -20,7 +20,7 @@ namespace LocalizationProject.ViewModels
     {
         private readonly ILocationService _locationService;
         private readonly IWeatherService _weatherService;
-
+        
         private double _currentLat;
         private double _currentLon;
         
@@ -96,13 +96,13 @@ namespace LocalizationProject.ViewModels
         public ICommand NavigateToSettingsCommand { get; }
         
         public MainPageViewModel(INavigationService navigation, IWeatherService weatherService,
-            ILocationService locationService)
+            ILocationService locationService, SettingsPageViewModel settingsPageViewModel)
         {
             _navigation = navigation;
             _weatherService = weatherService;
             _locationService = locationService;
-            NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             
+            NavigateToSettingsCommand = new Command(NavigateToSettingsPage);
             MessagingCenter.Subscribe<SettingsPageViewModel, string>(this, "PreferenceChanged", OnPreferenceChanged);
         }
         

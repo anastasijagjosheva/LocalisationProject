@@ -97,15 +97,17 @@ namespace LocalizationProject.ViewModels
             SelectedTemperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
             SelectedPressureUnit = Preferences.Get("PressureUnit", "hPa");
+            SelectedLanguage = Preferences.Get("Language", "en-us");
             
-            var selectedLanguage = Preferences.Get("Language", "en-us");
-            if (selectedLanguage == "mk-mk")
+            if (SelectedLanguage == "mk-mk")
             {
-                OnMKButtonClicked();
+                BackgroundColor1 = Color.LightGray;
+                BackgroundColor2 = Color.White;
             }
             else
             {
-                OnENButtonClicked();
+                BackgroundColor1 = Color.White;
+                BackgroundColor2 = Color.LightGray;
             }
             
             try
