@@ -55,8 +55,23 @@ namespace LocalizationProject.ViewModels
                 MessagingCenter.Send(this, "PreferenceChanged", "Language");
             }
         }
-
+        
+        private Color _backgroundColor1 = Color.LightGray;
+        public Color BackgroundColor1
+        {
+            get => _backgroundColor1;
+            set => SetProperty(ref _backgroundColor1, value);
+            
+        }
+        private Color _backgroundColor2 = Color.LightGray;
+        public Color BackgroundColor2
+        {
+            get => _backgroundColor2;
+            set => SetProperty(ref _backgroundColor2, value);
+        }
         public ICommand BackCommand { get; set; }
+        public Command OnEnButtonClickedCommand { get; set; }
+        public Command OnMkButtonClickedCommand { get; set; }
         
         private readonly INavigationService _navigation;
         
@@ -64,11 +79,24 @@ namespace LocalizationProject.ViewModels
         {
             _navigation = navigation;
             BackCommand = new Command(BackCommandHandler);
+            OnEnButtonClickedCommand = new Command(OnENButtonClicked);
+            OnMkButtonClickedCommand = new Command(OnMKButtonClicked);
             SelectedTemperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
+            
+            var selectedLanguage = Preferences.Get("Language", "en-us");
+            if (selectedLanguage == "mk-mk")
+            {
+                OnMKButtonClicked();
+            }
+            else
+            {
+                OnENButtonClicked();
+            }
+            
             try
             {
-                SelectedLanguage = Preferences.Get("Language", "en-us");
+                //SelectedLanguage = Preferences.Get("Language", "en-us");
             }
             catch (Exception ex)
             {
@@ -76,7 +104,27 @@ namespace LocalizationProject.ViewModels
             }
         }
         
-        
+        public void OnENButtonClicked()
+        {
+            BackgroundColor1 = Color.White;
+            BackgroundColor2 = Color.LightGray;
+            
+            Preferences.Set("Language", "en-us");
+            var newCulture = new CultureInfo("en-us");
+            LocalizationResourceManager.Instance.SetCulture(newCulture);
+            MessagingCenter.Send(this, "PreferenceChanged", "Language");
+        }
+
+        public void OnMKButtonClicked()
+        {
+            BackgroundColor1 = Color.LightGray;
+            BackgroundColor2 = Color.White;
+            
+            Preferences.Set("Language", "mk-mk");
+            var newCulture = new CultureInfo("mk-mk");
+            LocalizationResourceManager.Instance.SetCulture(newCulture);
+            MessagingCenter.Send(this, "PreferenceChanged", "Language");
+        }
         private async void BackCommandHandler()
         {
             await _navigation.GoBackAsync();

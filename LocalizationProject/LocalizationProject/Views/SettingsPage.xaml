@@ -46,8 +46,8 @@
                     <Label
                         Grid.Row="2"
                         Text="{Binding [TemperatureUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
-                        VerticalOptions="Center" 
-                        FontSize="18"/>
+                        VerticalOptions="Center"
+                        FontSize="18" />
                     <StackLayout
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
@@ -70,7 +70,7 @@
                         Grid.Row="3"
                         Text="{Binding [WindUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
-                        FontSize="18"/>
+                        FontSize="18" />
                     <StackLayout
                         Orientation="Horizontal"
                         HorizontalOptions="EndAndExpand">
@@ -85,6 +85,31 @@
                         </Picker>
                     </StackLayout>
                 </StackLayout>
+                <!-- <StackLayout -->
+                <!--     Grid.Row="4" -->
+                <!--     Margin="16, 6, 16, 6" -->
+                <!--     Orientation="Horizontal"> -->
+                <!--     <Label -->
+                <!--         Grid.Row="4" -->
+                <!--         Text="{Binding [Language].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}" -->
+                <!--         VerticalOptions="Center"  -->
+                <!--         FontSize="18"/> -->
+                <!--     <StackLayout -->
+                <!--         Orientation="Horizontal" -->
+                <!--         HorizontalOptions="EndAndExpand"> -->
+                <!--         <Picker x:Name="Language" -->
+                <!--                 SelectedItem="{Binding SelectedLanguage}"> -->
+                <!--             <Picker.ItemsSource> -->
+                <!--                 <x:Array Type="{x:Type x:String}"> -->
+                <!--                     <x:String>en-us</x:String> -->
+                <!--                     <x:String>mk-mk</x:String> -->
+                <!--                     <x:String>de-de</x:String> -->
+                <!--                 </x:Array> -->
+                <!--             </Picker.ItemsSource> -->
+                <!--         </Picker> -->
+                <!--     </StackLayout> -->
+                <!-- </StackLayout> -->
+
                 <StackLayout
                     Grid.Row="4"
                     Margin="16, 6, 16, 6"
@@ -92,21 +117,50 @@
                     <Label
                         Grid.Row="4"
                         Text="{Binding [Language].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
-                        VerticalOptions="Center" 
-                        FontSize="18"/>
+                        VerticalOptions="Center"
+                        FontSize="18" />
                     <StackLayout
+                        HorizontalOptions="EndAndExpand"
                         Orientation="Horizontal"
-                        HorizontalOptions="EndAndExpand">
-                        <Picker x:Name="Language"
-                                SelectedItem="{Binding SelectedLanguage}">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>en-us</x:String>
-                                    <x:String>mk-mk</x:String>
-                                    <x:String>de-de</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
+                        Spacing="0">
+                        <Frame
+                            Padding="0, 0, 0 ,0"
+                            Margin="0,0,0,0"
+                            CornerRadius="15"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            BackgroundColor="{Binding BackgroundColor1}">
+                            <Button
+                                AutomationId="Button1"
+                                Text="EN"
+                                FontFamily="RegularFont"
+                                FontSize="Small"
+                                TextColor="Black"
+                                Padding="0,0, 0, 0"
+                                VerticalOptions="Center"
+                                WidthRequest="60"
+                                HeightRequest="30"
+                                BackgroundColor="Transparent"
+                                Command="{Binding OnEnButtonClickedCommand}" />
+                        </Frame>
+                        <Frame
+                            Padding="0, 0, 0 ,0"
+                            Margin="5,0,0,0"
+                            CornerRadius="15"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            BackgroundColor="{Binding BackgroundColor2}">
+                            <Button
+                                AutomationId="Button2"
+                                Text="MK"
+                                FontFamily="RegularFont"
+                                FontSize="Small"
+                                TextColor="Black"
+                                VerticalOptions="Center"
+                                WidthRequest="60"
+                                HeightRequest="30"
+                                Command="{Binding OnMkButtonClickedCommand}" />
+                        </Frame>
                     </StackLayout>
                 </StackLayout>
             </Grid>
