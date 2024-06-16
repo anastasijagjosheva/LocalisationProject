@@ -19,6 +19,8 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <StackLayout
                     Grid.Row="0"
@@ -37,17 +39,24 @@
                 <Label
                     Grid.Row="1"
                     Text="{Binding [Settings].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
-                    FontSize="25"
+                    FontSize="30"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="16, 16, 0, 0" />
+                <Label
+                    Grid.Row="2"
+                    Text="Units"
+                    FontSize="20"
+                    TextColor="#7D7D7D"
                     HorizontalOptions="StartAndExpand"
                     Margin="16, 16, 0, 0" />
                 <StackLayout
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Margin="16, 16, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Grid.Row="2"
                         Text="{Binding [TemperatureUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
+                        FontAttributes="Bold"
                         FontSize="18" />
                     <StackLayout
                         Orientation="Horizontal"
@@ -64,13 +73,13 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Margin="16, 6, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Grid.Row="3"
                         Text="{Binding [WindUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
+                        FontAttributes="Bold"
                         FontSize="18" />
                     <StackLayout
                         Orientation="Horizontal"
@@ -87,13 +96,13 @@
                     </StackLayout>
                 </StackLayout>
                 <StackLayout
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Margin="16, 6, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Grid.Row="4"
                         Text="{Binding [Pressure].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
+                        FontAttributes="Bold"
                         FontSize="18" />
                     <StackLayout
                         Orientation="Horizontal"
@@ -135,13 +144,30 @@
                 <!-- </StackLayout> -->
 
                 <StackLayout
-                    Grid.Row="5"
+                    Grid.Row="6">
+                    <BoxView
+                        Grid.Row="6"
+                        WidthRequest="50"
+                        HeightRequest="1"
+                        Margin="16, 6, 16, 6"
+                        Color="#7D7D7D"/>
+                    <Label 
+                           Text="Other settings"
+                           FontSize="20"
+                           TextColor="#7D7D7D"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="16, 16, 0, 0" />
+                    
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="7"
                     Margin="16, 6, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Grid.Row="5"
                         Text="{Binding [Language].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
+                        FontAttributes="Bold"
                         FontSize="18" />
                     <StackLayout
                         HorizontalOptions="EndAndExpand"

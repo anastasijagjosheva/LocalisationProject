@@ -37,10 +37,10 @@
         <value>Settings</value>
     </data>
     <data name="TemperatureUnit" xml:space="preserve">
-        <value>Temperature unit</value>
+        <value>Temperature</value>
     </data>
     <data name="WindUnit" xml:space="preserve">
-        <value>Wind speed unit</value>
+        <value>Wind Speed</value>
     </data>
     <data name="Language" xml:space="preserve">
         <value>Language</value>
