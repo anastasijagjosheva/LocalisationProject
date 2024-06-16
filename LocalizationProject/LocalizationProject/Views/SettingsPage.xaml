@@ -103,7 +103,7 @@
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>hPa</x:String>
-                                    <x:String>mbar</x:String>
+                                    <x:String>bar</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>

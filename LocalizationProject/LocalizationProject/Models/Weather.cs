@@ -31,7 +31,7 @@ namespace LocalizationProject.Models
         public string TempUnitIcon { get; set; } = "C";
         public int Humidity { get; set; }
         public double Wind { get; set; }
-        public int Pressure { get; set; }
+        public double Pressure { get; set; }
         public int Cloudiness { get; set; }
     }
         

@@ -33,7 +33,7 @@ namespace LocalizationProject.Services.Weather
                     Temp = Convert.ToDouble(json["current"]?["temperature_2m"]),
                     Humidity = Convert.ToInt32(json["current"]?["relative_humidity_2m"]),
                     Wind = Convert.ToDouble(json["current"]?["wind_speed_10m"]),
-                    Pressure = Convert.ToInt32(json["current"]?["pressure_msl"]),
+                    Pressure = Convert.ToDouble(json["current"]?["pressure_msl"]),
                     Cloudiness = Convert.ToInt32(json["current"]?["cloud_cover"])
                 };
 
