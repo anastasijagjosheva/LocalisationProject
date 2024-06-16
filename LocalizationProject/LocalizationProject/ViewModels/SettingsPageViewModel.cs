@@ -96,7 +96,7 @@ namespace LocalizationProject.ViewModels
             OnMkButtonClickedCommand = new Command(OnMKButtonClicked);
             SelectedTemperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             SelectedWindSpeedUnit = Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
-            SelectedPressureUnit = Preferences.Get("PressureUnit", "hpa");
+            SelectedPressureUnit = Preferences.Get("PressureUnit", "hPa");
             
             var selectedLanguage = Preferences.Get("Language", "en-us");
             if (selectedLanguage == "mk-mk")
