@@ -40,6 +40,19 @@ namespace LocalizationProject.ViewModels
                 MessagingCenter.Send(this, "PreferenceChanged", "WindUnit");
             }
         }
+        
+        private string _selectedPressureUnit;
+        public string SelectedPressureUnit
+        {
+            get => _selectedPressureUnit;
+            set
+            {
+                _selectedPressureUnit = value;
+                RaisePropertyChanged(nameof(SelectedPressureUnit));
+                Preferences.Set("PressureUnit", value);
+                MessagingCenter.Send(this, "PreferenceChanged", "PressureUnit");
+            }
+        }
 
         private string _selectedLanguage;
         public string SelectedLanguage

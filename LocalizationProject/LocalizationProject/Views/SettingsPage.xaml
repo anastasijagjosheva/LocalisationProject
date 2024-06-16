@@ -18,6 +18,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <StackLayout
                     Grid.Row="0"
@@ -85,6 +86,29 @@
                         </Picker>
                     </StackLayout>
                 </StackLayout>
+                <StackLayout
+                    Grid.Row="4"
+                    Margin="16, 6, 16, 6"
+                    Orientation="Horizontal">
+                    <Label
+                        Grid.Row="4"
+                        Text="{Binding [Pressure].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        VerticalOptions="Center"
+                        FontSize="18" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="EndAndExpand">
+                        <Picker x:Name="PressureUnits"
+                                SelectedItem="{Binding SelectedPressureUnit}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>hPa</x:String>
+                                    <x:String>mbar</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
                 <!-- <StackLayout -->
                 <!--     Grid.Row="4" -->
                 <!--     Margin="16, 6, 16, 6" -->
@@ -111,11 +135,11 @@
                 <!-- </StackLayout> -->
 
                 <StackLayout
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Margin="16, 6, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Grid.Row="4"
+                        Grid.Row="5"
                         Text="{Binding [Language].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
                         FontSize="18" />
