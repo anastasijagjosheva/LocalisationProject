@@ -44,7 +44,7 @@
                     Margin="16, 16, 0, 0" />
                 <Label
                     Grid.Row="2"
-                    Text="Units"
+                    Text="{Binding [Units].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                     FontSize="20"
                     TextColor="#7D7D7D"
                     HorizontalOptions="StartAndExpand"
@@ -54,7 +54,7 @@
                     Margin="16, 16, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Text="{Binding [TemperatureUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        Text="{Binding [Temperature].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
                         FontAttributes="Bold"
                         FontSize="18" />
@@ -77,7 +77,7 @@
                     Margin="16, 6, 16, 6"
                     Orientation="Horizontal">
                     <Label
-                        Text="{Binding [WindUnit].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
+                        Text="{Binding [Wind].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                         VerticalOptions="Center"
                         FontAttributes="Bold"
                         FontSize="18" />
@@ -152,7 +152,7 @@
                         Margin="16, 6, 16, 6"
                         Color="#7D7D7D"/>
                     <Label 
-                           Text="Other settings"
+                        Text="{Binding [OtherSettings].Value, Mode=OneWay, Source={x:Static localization:LocalizationResourceManager.Instance}}"
                            FontSize="20"
                            TextColor="#7D7D7D"
                            HorizontalOptions="StartAndExpand"

@@ -29,13 +29,19 @@
     <data name="Settings" xml:space="preserve">
         <value>Поставки</value>
     </data>
-    <data name="TemperatureUnit" xml:space="preserve">
-        <value>Единица за температура</value>
-    </data>
     <data name="WindUnit" xml:space="preserve">
-        <value>Единица за брзина на ветерот</value>
+        <value>Брзина на ветер</value>
     </data>
     <data name="Language" xml:space="preserve">
         <value>Јазик</value>
+    </data>
+    <data name="Temperature" xml:space="preserve">
+        <value>Температура</value>
+    </data>
+    <data name="Units" xml:space="preserve">
+        <value>Единици</value>
+    </data>
+    <data name="OtherSettings" xml:space="preserve">
+        <value>Други поставки</value>
     </data>
 </root>

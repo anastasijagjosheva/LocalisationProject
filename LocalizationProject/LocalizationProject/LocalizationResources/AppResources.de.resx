@@ -29,13 +29,19 @@
     <data name="Settings" xml:space="preserve">
         <value>Einstellungen</value>
     </data>
-    <data name="TemperatureUnit" xml:space="preserve">
-        <value>Temperatureinheit</value>
-    </data>
     <data name="WindUnit" xml:space="preserve">
         <value>Windgeschwindigkeitseinheit</value>
     </data>
     <data name="Language" xml:space="preserve">
         <value>Sprache</value>
+    </data>
+    <data name="Temperature" xml:space="preserve">
+        <value>Temperatureinheit</value>
+    </data>
+    <data name="Units" xml:space="preserve">
+        <value>Einheiten</value>
+    </data>
+    <data name="OtherSettings" xml:space="preserve">
+        <value>Andere Einheiten</value>
     </data>
 </root>

@@ -36,7 +36,7 @@
     <data name="Settings" xml:space="preserve">
         <value>Settings</value>
     </data>
-    <data name="TemperatureUnit" xml:space="preserve">
+    <data name="Temperature" xml:space="preserve">
         <value>Temperature</value>
     </data>
     <data name="WindUnit" xml:space="preserve">
@@ -44,5 +44,11 @@
     </data>
     <data name="Language" xml:space="preserve">
         <value>Language</value>
+    </data>
+    <data name="Units" xml:space="preserve">
+        <value>Units</value>
+    </data>
+    <data name="OtherSettings" xml:space="preserve">
+        <value>Other settings</value>
     </data>
 </root>

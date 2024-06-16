@@ -81,9 +81,9 @@ namespace LocalizationProject.LocalizationResources {
             }
         }
         
-        internal static string TemperatureUnit {
+        internal static string Temperature {
             get {
-                return ResourceManager.GetString("TemperatureUnit", resourceCulture);
+                return ResourceManager.GetString("Temperature", resourceCulture);
             }
         }
         
@@ -96,6 +96,18 @@ namespace LocalizationProject.LocalizationResources {
         internal static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        internal static string Units {
+            get {
+                return ResourceManager.GetString("Units", resourceCulture);
+            }
+        }
+        
+        internal static string OtherSettings {
+            get {
+                return ResourceManager.GetString("OtherSettings", resourceCulture);
             }
         }
     }
