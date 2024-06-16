@@ -27,7 +27,7 @@ namespace LocalizationProject.Converters
                 case "WindUnit": 
                     return windUnit.Equals("km/h") ? $"{Math.Round(val, 1)} km/h" : $"{Math.Round((val * 1000 / 3600), 1)} mps";
                 case "PressureUnit": 
-                    return pressureUnit.Equals("hpa") ? $"{val} hpa": $"{val / 1000} bar";
+                    return pressureUnit.Equals("hpa") ? $"{Math.Round(val, 1)} hpa": $"{Math.Round((val / 1000), 1)} bar";
                 case "TempUnitIcon": 
                     return temperatureUnit.Equals("°C") ? "°C": "°F";
                 default: 

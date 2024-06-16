@@ -102,7 +102,7 @@
                                 SelectedItem="{Binding SelectedPressureUnit}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>hPa</x:String>
+                                    <x:String>hpa</x:String>
                                     <x:String>bar</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>

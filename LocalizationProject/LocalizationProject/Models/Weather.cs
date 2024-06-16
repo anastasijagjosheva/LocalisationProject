@@ -20,7 +20,7 @@ namespace LocalizationProject.Models
                 RaisePropertyChanged(nameof(Temp));
             }
         }
-        public string TempUnitIcon { get; set; } = "C";
+        public string TempUnitIcon { get; set; } = "°C";
     }
     
     public class WeatherDetails
@@ -28,7 +28,7 @@ namespace LocalizationProject.Models
         public DateTime DateTime{ get; set; }
         public double Temp { get; set; }
         
-        public string TempUnitIcon { get; set; } = "C";
+        public string TempUnitIcon { get; set; } = "°C";
         public int Humidity { get; set; }
         public double Wind { get; set; }
         public double Pressure { get; set; }
