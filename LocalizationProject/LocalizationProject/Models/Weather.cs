@@ -20,12 +20,15 @@ namespace LocalizationProject.Models
                 RaisePropertyChanged(nameof(Temp));
             }
         }
+        public string TempUnitIcon { get; set; } = "C";
     }
     
     public class WeatherDetails
     {
         public DateTime DateTime{ get; set; }
         public double Temp { get; set; }
+        
+        public string TempUnitIcon { get; set; } = "C";
         public int Humidity { get; set; }
         public double Wind { get; set; }
         public int Pressure { get; set; }

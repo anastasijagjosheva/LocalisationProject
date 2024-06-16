@@ -63,7 +63,7 @@
                         FontAttributes="Bold"
                         VerticalOptions="Center" />
                     <Label
-                        Text="°C"
+                        Text="{Binding WeatherDetails.TempUnitIcon}"
                         TextColor="White"
                         FontSize="34"
                         VerticalOptions="Center" />
@@ -235,7 +235,7 @@
                                             FontSize="25"
                                             FontAttributes="Bold"
                                             VerticalOptions="Center" />
-                                        <Label Text="°C"
+                                        <Label Text="{Binding TempUnitIcon}"
                                                TextColor="Black"
                                                FontSize="15"
                                                VerticalOptions="Center" />
