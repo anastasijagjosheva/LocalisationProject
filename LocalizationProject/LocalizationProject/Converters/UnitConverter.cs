@@ -12,8 +12,8 @@ namespace LocalizationProject.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var val = (double)value;
-            var param = (string)parameter;
+             var val = (double)value;
+             var param = (string)parameter;
             
             var temperatureUnit = Preferences.Get("TemperatureUnit", "Celsius");
             var windUnit= Preferences.Get("WindUnit", "Kilometers per hour (km/h)");
@@ -25,8 +25,8 @@ namespace LocalizationProject.Converters
                     return temperatureUnit.Equals("°C") ? $"{val}": $"{val * 9 / 5 + 32}";
                 case "WindUnit": 
                     return windUnit.Equals("km/h") ? $"{Math.Round(val, 1)} km/h" : $"{Math.Round((val * 1000 / 3600), 1)} mps";
-                case "Language": 
-                    return language.Equals("English") ? "C" : "F";
+                case "TempUnitIcon": 
+                    return temperatureUnit.Equals("°C") ? "°C": "°F";
                 default: 
                     return Math.Round(val, 1);
             }
