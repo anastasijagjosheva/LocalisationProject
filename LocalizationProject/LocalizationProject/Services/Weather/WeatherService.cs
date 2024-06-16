@@ -30,7 +30,7 @@ namespace LocalizationProject.Services.Weather
                 WeatherDetails weatherDetails = new WeatherDetails()
                 {
                     DateTime = DateTime.Now,
-                    Temp = Convert.ToDouble(json["current"]?["temperature_2m"]),
+                    Temp = Convert.ToInt32(json["current"]?["temperature_2m"]),
                     Humidity = Convert.ToInt32(json["current"]?["relative_humidity_2m"]),
                     Wind = Convert.ToDouble(json["current"]?["wind_speed_10m"]),
                     Pressure = Convert.ToDouble(json["current"]?["pressure_msl"]),

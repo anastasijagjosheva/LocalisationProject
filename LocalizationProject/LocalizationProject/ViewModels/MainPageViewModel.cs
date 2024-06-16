@@ -195,23 +195,14 @@ namespace LocalizationProject.ViewModels
             _currentLat = Location.Latitude;
             _currentLon = Location.Latitude;
             await GetCurrentWeather();
-
-
-            if (WeatherDetails.Temp >= 35)
-            {
-                WeatherDetails.Icon = "sunny.png";
-            }
-            else {
-                    WeatherDetails.Icon = "sunnycloudy.png";
-            }
             
             foreach (var day in DailyWeatherForecast)
             {
-                if (day.Temp > 35)
+                if (day.Temp >= 34)
                 {
                     day.Icon = "sunny.png";
                 }
-                else if (day.Temp >= 33 && day.Temp <= 35)
+                else if (day.Temp >= 32 || day.Temp <= 33)
                 {
                     day.Icon = "sunnycloudy.png";
                 }

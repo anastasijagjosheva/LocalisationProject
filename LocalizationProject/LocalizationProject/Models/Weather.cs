@@ -7,7 +7,6 @@ namespace LocalizationProject.Models
     public class Weather : BindableBase
     {
         public DateTime Date { get; set; }
-        
         public string Icon { get; set; } = "weather.png";
         
         private double _temp;
@@ -36,7 +35,6 @@ namespace LocalizationProject.Models
         public string Icon { get; set; } = "weather.png";
 
     }
-        
     
     public class CurrentWeather
     {
