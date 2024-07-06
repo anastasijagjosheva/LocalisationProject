@@ -25,9 +25,9 @@ namespace LocalizationProject
         {
             InitializeComponent();
             
-            var culture = new CultureInfo("en-us");
-            LocalizationResourceManager.Instance.SetCulture(culture);
-            AppResources.Culture = culture;
+            // var culture = new CultureInfo("en-us");
+            // LocalizationResourceManager.Instance.SetCulture(culture);
+            // AppResources.Culture = culture;
             
             await NavigationService.NavigateAsync("MainPage");
         }
